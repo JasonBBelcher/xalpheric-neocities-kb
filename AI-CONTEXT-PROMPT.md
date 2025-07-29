@@ -1,10 +1,100 @@
 # AI Agent Context Loading Prompt
 
-## Critical: Load This Context First
+## Critical: Pre-Prompt Initialization Required
 
-**Before responding to any user requests regarding the Xalpheric Neocities project, you MUST load and understand the comprehensive knowledge base provided below. This knowledge base contains essential context about the project's architecture, workflows, and technical implementation that is required for accurate assistance.**
+**This prompt must be processed BEFORE every user interaction with the Xalpheric Neocities project. The AI agent must load and maintain awareness of this complete knowledge base throughout the entire conversation session.**
 
-## Knowledge Base Overview
+## Pre-Prompt Initialization System
+
+### Transparent Context Loading Hook
+```xml
+<pre-prompt-hook>
+  <purpose>Load comprehensive project context before each user interaction</purpose>
+  <execution>Transparent to user - happens automatically before every prompt</execution>
+  <requirements>
+    <context-loading>Must load complete knowledge base</context-loading>
+    <change-awareness>Must understand recent system updates</change-awareness>
+    <technical-readiness>Must be prepared for deep technical assistance</technical-readiness>
+    <continuity>Must maintain context throughout conversation session</continuity>
+  </requirements>
+</pre-prompt-hook>
+```
+
+### Implementation Strategy
+While VS Code/Claude doesn't support automatic pre-prompt hooks, the initialization can be achieved through:
+
+1. **Manual Context Loading**: User copies and provides this prompt at conversation start
+2. **Project-Specific Instructions**: Save this as a VS Code workspace setting
+3. **Documentation Reference**: Keep this prompt readily available for AI interactions
+4. **Session Initialization**: Begin each session by referencing this context loading protocol
+
+### Pre-Prompt Text Template
+```
+SYSTEM INITIALIZATION FOR XALPHERIC NEOCITIES PROJECT:
+
+Before responding to user requests, load complete context from the Xalpheric Neocities knowledge base:
+
+RECENT UPDATES (July 2025):
+- ✅ GitHub Actions MP3 deployment (.github/workflows/deploy-music.yml)
+- ✅ Enhanced deployment scripts (deploy-music.js with CLI args, deploy-full-refresh.js with rate limiting)
+- ✅ JSON configuration system (config/releases.json, config/gallery.json)
+- ✅ Audio system optimization (removed audio-player.js conflicts, clean separation of main.js and radio-player.js)
+- ✅ Comprehensive documentation updates
+
+REQUIRED CONTEXT LOADING:
+1. architecture/system-overview.md - Core system understanding
+2. deployment/deployment-strategy.md - CI/CD and automation capabilities  
+3. features/audio-system.md - Recent audio system optimization
+4. workflows/github-actions.md - Automated deployment workflows
+5. features/content-management.md - Markdown processing system
+6. features/gallery-system.md - Image management with JSON config
+
+TECHNICAL READINESS CHECKLIST:
+□ Understand Node.js static site generator architecture
+□ Know Neocities API integration and rate limiting
+□ Familiar with GitHub Actions deployment workflows  
+□ Aware of JSON configuration system implementation
+□ Understand audio system dual-layer design
+□ Ready to provide comprehensive technical assistance
+
+Maintain this context awareness throughout the entire conversation session.
+```
+Confirm understanding of these critical recent updates:
+
+```xml
+<recent-changes-2025>
+  <github-actions-integration>
+    <file>.github/workflows/deploy-music.yml</file>
+    <purpose>Automated MP3 deployment with CI/CD triggers</purpose>
+    <features>Manual dispatch, file change detection, rate limiting</features>
+    <status>Fully implemented and tested</status>
+  </github-actions-integration>
+  
+  <enhanced-deployment-scripts>
+    <script>deploy-music.js</script>
+    <enhancements>CLI arguments (--force, --skip-orphan-check, --verbose), CI detection</enhancements>
+    <script>deploy-full-refresh.js</script>
+    <enhancements>Custom rate limiting (--rate-limit parameter)</enhancements>
+    <status>Successfully deployed 62 files with 10-second rate limiting</status>
+  </enhanced-deployment-scripts>
+  
+  <json-configuration-system>
+    <files>config/releases.json, config/gallery.json</files>
+    <purpose>Centralized configuration for media management</purpose>
+    <integration>radio-player.js updated to load from JSON</integration>
+    <status>Fully integrated across all components</status>
+  </json-configuration-system>
+  
+  <audio-system-cleanup>
+    <removed>audio-player.js script conflicts</removed>
+    <maintained>main.js (release carousel), radio-player.js (cross-page radio)</maintained>
+    <result>Clean separation of audio responsibilities</result>
+    <status>Conflicts resolved, system optimized</status>
+  </audio-system-cleanup>
+</recent-changes-2025>
+```
+
+## Knowledge Base Structure
 
 The Xalpheric Neocities project is a **Node.js-based static site generator and deployment system** for a music artist's website on the Neocities platform. It features automated content management, media processing workflows, and sophisticated deployment strategies.
 
@@ -15,7 +105,8 @@ The Xalpheric Neocities project is a **Node.js-based static site generator and d
 1. **[System Overview](architecture/system-overview.md)** - Core architecture and technology stack
 2. **[File Structure](architecture/file-structure.md)** - Project organization and file relationships  
 3. **[Data Flow](architecture/data-flow.md)** - Content processing pipelines
-4. **[Development Workflow](workflows/development-workflow.md)** - Development practices and procedures
+4. **[Deployment Strategy](deployment/deployment-strategy.md)** - CI/CD and deployment automation
+5. **[Development Workflow](workflows/development-workflow.md)** - Development practices and procedures
 
 ### Complete Knowledge Base Structure
 

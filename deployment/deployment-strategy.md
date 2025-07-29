@@ -269,12 +269,44 @@ The Xalpheric project implements a **multi-tiered deployment strategy** designed
 ### CI/CD Integration
 ```xml
 <cicd-integration>
-  <github-actions>
-    <trigger>Push to main branch with asset changes</trigger>
-    <workflow>Deploy assets automatically</workflow>
-    <secrets>NEOCITIES_API_KEY stored securely</secrets>
-    <reporting>Success/failure status in Actions tab</reporting>
-  </github-actions>
+  <github-actions-workflows>
+    <mp3-deployment>
+      <file>.github/workflows/deploy-music.yml</file>
+      <triggers>
+        <file-changes>music/*.mp3 files modified</file-changes>
+        <config-changes>config/releases.json updated</config-changes>
+        <manual-dispatch>Repository Actions tab</manual-dispatch>
+      </triggers>
+      <features>
+        <smart-detection>Only deploys when MP3 or config files change</smart-detection>
+        <orphan-cleanup>Removes outdated music files from server</orphan-cleanup>
+        <rate-limiting>Configurable delays between API calls</rate-limiting>
+        <comprehensive-logging>Detailed success/failure reporting</comprehensive-logging>
+      </features>
+      <script-integration>Uses deploy-music.js with CLI arguments</script-integration>
+    </mp3-deployment>
+    
+    <asset-deployment>
+      <trigger>Push to main branch with asset changes</trigger>
+      <workflow>Deploy assets automatically</workflow>
+      <secrets>NEOCITIES_API_KEY stored securely</secrets>
+      <reporting>Success/failure status in Actions tab</reporting>
+    </asset-deployment>
+  </github-actions-workflows>
+  
+  <enhanced-cli-support>
+    <deploy-music-script>
+      <arguments>--force, --skip-orphan-check, --verbose</arguments>
+      <ci-detection>Automatically adjusts behavior in CI environment</ci-detection>
+      <rate-limiting>Supports custom rate limiting via parseRateLimit()</rate-limiting>
+    </deploy-music-script>
+    
+    <deploy-full-refresh-script>
+      <rate-limit-parameter>--rate-limit [1-60] seconds</rate-limit-parameter>
+      <tested-performance>Successfully deployed 62 files with 10-second limiting</tested-performance>
+      <api-compliance>Respects Neocities API rate limits</api-compliance>
+    </deploy-full-refresh-script>
+  </enhanced-cli-support>
   
   <manual-triggers>
     <github-ui>Manual workflow dispatch available</github-ui>
